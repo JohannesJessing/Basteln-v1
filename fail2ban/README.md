@@ -6,6 +6,7 @@ This document is a shortened form of the original `Fail2ban` [documentation](htt
 
 - [Installation](#installation)
 - [Configuration](#configuration)
+- [Unban IP](#unban-ip)
 
 ## Installation
 
@@ -34,4 +35,10 @@ The [`ssh.local`](jail.d/ssh.local) configuration enables SSH protection with th
 
 ```sh
 sudo systemctl restart fail2ban
+```
+
+## Unban IP
+
+```sh
+fail2ban-client set <jailname> unbanip <IP>
 ```
