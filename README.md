@@ -10,7 +10,7 @@
   - [fail2ban](#fail2ban)
   - [Nginx](#nginx)
   - [openSSH](#openssh)
-  - [ufw](#ufw)
+  - [WireGuard](#wireguard)
 - [Information](#information)
   - [DNS](#dns)
   - [Domains](#domains)
@@ -88,17 +88,19 @@ Secure remote access via encrypted SSH connections.
 | Config    | `not needed`                                                                                  |
 | Reference | [`GitHub`](https://github.com/openssh/openssh-portable), [`Website`](https://www.openssh.org) |
 
-### UFW
+### WireGuard
 
-> Check [`ufw/README.md`](/ufw/README.md) for further instructions.
+> Check [`wireguard/README.md`](/wireguard/README.md) for further instructions.
 
-| Option    | Value                                         |
-| --------- | --------------------------------------------- |
-| Directory | `/etc/ufw`                                    |
-| Domains   | `not needed`                                  |
-| Ports     | `all`                                         |
-| Config    | [`ufw/`](/ufw/)                               |
-| Reference | [`Launchpad`](https://code.launchpad.net/ufw) |
+Fast and modern VPN tunnel with strong encryption.
+
+| Option    | Value                                   |
+| --------- | --------------------------------------- |
+| Directory | `/etc/wireguard`                        |
+| Domains   | `all`                                   |
+| Ports     | `51820/udp`                             |
+| Config    | [`wireguard/`](/wireguard/)             |
+| Reference | [`Website`](https://www.wireguard.com/) |
 
 ## Information
 
@@ -118,8 +120,9 @@ Secure remote access via encrypted SSH connections.
 
 ### Ports
 
-| Port      | Status   | Firewall   | Service               |
-| --------- | -------- | ---------- | --------------------- |
-| `22/tcp`  | `active` | `LIMIT IN` | [`openSSH`](#openssh) |
-| `80/tcp`  | `active` | `ALLOW IN` | [`Nginx`](#nginx)     |
-| `443/tcp` | `active` | `ALLOW IN` | [`Nginx`](#nginx)     |
+| Port        | Status   | Firewall   | Service                   |
+| ----------- | -------- | ---------- | ------------------------- |
+| `22/tcp`    | `active` | `LIMIT IN` | [`openSSH`](#openssh)     |
+| `80/tcp`    | `active` | `ALLOW IN` | [`Nginx`](#nginx)         |
+| `443/tcp`   | `active` | `ALLOW IN` | [`Nginx`](#nginx)         |
+| `51820/udp` | `active` | `ALLOW IN` | [`WireGuard`](#wireguard) |
