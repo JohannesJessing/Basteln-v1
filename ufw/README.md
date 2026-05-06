@@ -5,15 +5,8 @@ This document is a shortened form of the original `UFW` [documentation](https://
 ## Content
 
 - [Installation](#installation)
-  - [1. Download](#1-download)
-  - [2. rsyslog](#2-install-rsyslog)  
-  - [3. Logging](#3-set-logging)
-  - [4. SSH rule](#4-limit-ssh)
-  - [5. Set default](#5-set-default)
-  - [6. Enable](#6-enable)
-  - [7. Reload](#7-reload)
-  - [8. Enable on boot](#8-enable-on-boot)
-  - [9. Status](#9-check-status)
+- [Add rule](#add-rule)
+- [Delete rule](#delete-rule)
 
 ## Installation
 
@@ -86,4 +79,49 @@ sudo systemctl start ufw
 ```sh
 sudo ufw status verbose
 sudo systemctl status ufw
+```
+
+## Add Rule
+
+For the full rule guide go [here](https://wiki.ubuntuusers.de/ufw/#Firewall-Regeln).
+
+### 1. New rule
+
+| Options  | Description     |
+| -------- | --------------- |
+| `allow`  | No restrictions |
+| `limit`  | Rate-limits     |
+| `deny`   | Silent drop     |
+| `reject` | Explicit refuse |
+
+
+```sh
+# ToDo: Set option and port
+sudo ufw <option> <port>
+```
+
+### 2. Reload
+
+```sh
+sudo ufw reload
+```
+
+### 3. Check status
+
+```sh
+sudo ufw status verbose
+```
+
+## Delete Rule
+
+### 1. Show rules
+
+```sh
+sudo ufw status numbered
+```
+
+### 2. Delete rule
+
+```sh
+sudo ufw delete <number>
 ```
